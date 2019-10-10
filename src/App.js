@@ -1,9 +1,10 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import Form from './components/Form';
 import axios from 'axios';
+require('dotenv').config();
 import logo from './logo.svg';
 import './App.css';
-require('dotenv').config();
+
 
 const tokenStr = `token ${process.env.REACT_APP_GITHUB_ACCESS_TOKEN}`;
 
