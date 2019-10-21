@@ -1,32 +1,31 @@
 import React, { useState } from "react";
 
-function Form({consumeApiGithub}) {
-
+function Form({ consumeApiGithub }) {
     const [search, addSearch] = useState({
-        username: '',
-    })
+        username: ""
+    });
 
-    // Función para actualizar el state de los inputs
     const updateState = e => {
         addSearch({
-            ...search, 
-            [e.target.name] : e.target.value
+            ...search,
+            [e.target.name]: e.target.value
         });
-    }
-    
+    };
+
     // Cuando hacemos submit al form
     const submitInfo = e => {
         e.preventDefault();
         consumeApiGithub(search);
-    }
+    };
 
     return (
         <div className="bg-info">
             <div className="container">
                 <div className="row">
-                    <form className="col card text-white bg-transparent  mb-5 pt-5 pb-2"
-                     onSubmit={submitInfo}
-                     >
+                    <form
+                        className="col card text-white bg-transparent  mb-5 pt-5 pb-2"
+                        onSubmit={submitInfo}
+                    >
                         <fieldset>
                             <legend className="text-center">
                                 Search GitHub User to see its Repositories
@@ -40,7 +39,7 @@ function Form({consumeApiGithub}) {
                                             className="form-control"
                                             name="username"
                                             placeholder="Example: emestanza"
-                                            onChange={updateState} 
+                                            onChange={updateState}
                                             required
                                         />
                                     </div>

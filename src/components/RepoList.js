@@ -1,30 +1,21 @@
-import React from "react";
-import Repo from './Repo.js';
+import React, { Fragment } from "react";
+import Repo from "./Repo.js";
 
-//stateless component
-// al iniciar el function component con parametro, este recogera los props que vengan de la declaración 
-// principal del o los componentes
-
-const RepoList = ({repositories}) =>{
-    
-    const mensaje = Object.keys(citas).length === 0?'There are not repositories to that username':"Repository List"
-
-    //en Cita se coloca un key para diferenciar cada elemento que se listara, sino se coloca, dara error
-    return ( 
-        <div className="card mt-2 py-5">
-            <div className="card-body">
-                <h2 className="text-center">{mensaje}</h2>
-                <div className="lista-citas">
+const RepoList = ({ repositories }) => {
+    const mensaje =
+        Object.keys(repositories).length === 0 ? "" : "Repository List";
+    return (
+        <Fragment>
+            <h2 className="text-center">{mensaje}</h2>
+            <div className="row">
+                <div className="col-md-6 offset-md-3">
                     {repositories.map(repo => (
-                        <Repo 
-                            key={repo.id} 
-                            repo={repo}
-                        />
+                        <Repo key={repo.id} repo={repo} />
                     ))}
                 </div>
             </div>
-        </div>
+        </Fragment>
     );
-}
+};
 
-export default ListaCitas;
+export default RepoList;

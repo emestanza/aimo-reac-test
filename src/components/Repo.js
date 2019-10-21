@@ -1,23 +1,21 @@
 import React from "react";
 
-//stateless component
-// al iniciar el function component con parametro, este recogera los props que vengan de la declaración 
-// principal del o los componentes
-
-const Repo = (repo) => ( 
-    <div className="media mt-3">
-        <div className="media-body">
-            <h3 className="mt-0">{cita.mascota}</h3>
-            <p className="card-text"><span>Nombre Dueño: </span> {cita.propietario} </p>
-            <p className="card-text"><span>Fecha: </span> {cita.fecha} </p>
-            <p className="card-text"><span>Hora: </span> {cita.hora} </p>
-            <p className="card-text"><span>Sintomas: </span> </p>
-            <p className="card-text">{cita.sintomas}</p>
-
-            <button className="btn btn-danger" onClick={() => eliminarCita(cita.id)}>Eliminar</button>
+const Repo = ({ repo }) => {
+    return (
+        <div className="media text-muted pt-3">
+            <div className="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <div className="d-flex justify-content-between align-items-center w-100">
+                    <strong className="text-gray-dark">
+                        <a target="_blank" href={repo.html_url}>
+                            {repo.name}
+                        </a>
+                    </strong>
+                    <label>{repo.language}</label>
+                </div>
+                <span className="d-block"></span>
+            </div>
         </div>
-    </div>
+    );
+};
 
-);
-
-export default Cita
+export default Repo;
